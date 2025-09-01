@@ -1,0 +1,128 @@
+\documentclass[10pt]{beamer}
+\usetheme{Dresden} % theme
+
+\setbeamertemplate{headline}{}  % no headline
+\usenavigationsymbolstemplate{} % no navigation
+\setbeamertemplate{sections/subsections in toc}[square] % setting toc numbering style to square.
+
+%= Footer; Starts ===============================================|
+\setbeamertemplate{footline}{   % custom footline
+    \ifnum\insertframenumber=1
+        % No footer on the first (front) page
+    \else
+        \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+        leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+        \leavevmode{\usebeamerfont{author in head/foot}\insertauthor}  \ifdefined\insertweb $\mid$ \insertweb \fi
+        \hfill
+        {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortdate{} \hspace*{1cm}}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+        leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+        {\usebeamerfont{title in head/foot}\insertshorttitle}%
+        \hfill
+        {\Large \insertframenumber{}} {\tiny of \inserttotalframenumber}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+        \end{beamercolorbox}
+    \fi
+}
+
+%= Footer; Ends ===============================================|
+
+%= Title page; Starts ===============================================|
+% Added department macros
+\newcommand{\department}[1]{%
+  \def\insertdepartment{#1}%
+}
+
+% Added event macros
+\newcommand{\event}[1]{%
+  \def\insertevent{#1}%
+}
+
+% Added website url macros
+\newcommand{\web}[1]{%
+  \def\insertweb{#1}%
+}
+
+% title page
+\setbeamertemplate{title page}{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \usebeamertemplate{title}
+    \vskip2em
+    {\color{structure} \insertauthor}\par
+    \vskip1em
+    \ifdefined\insertdepartment
+      {\small \insertdepartment}\par
+    \fi
+      {\small \insertinstitute}\par
+    \vskip3em
+    \ifdefined\insertevent
+      {\small \insertevent}\par
+    \fi
+    {\small \insertdate}\par
+  \endgroup
+  \vfill
+}
+%= Title page; Ends ===============================================|
+
+% -------------------- NO EDIT ABOVE --------------------------------|
+
+%--------------------------------------------------------------|
+% Packages
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+%--------------------------------------------------------------|
+%Author details:
+
+\title{My Title}
+\author{Damodar Rajbhandari}
+\web{rDamodar.com.np}
+\department{Faculty}
+\institute{University}
+\event{Conference}
+\date{01 Sept 2025}
+%---------------------------------------------------------------|
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+%------------ Section and frames starts from here -------------|
+
+\section{Introduction}
+\begin{frame}{Introduction}
+...
+\end{frame}
+
+\section{Description}
+\begin{frame}{Description}
+
+\end{frame}
+
+\begin{frame}{~}
+\begin{center}
+{\color{structure!90}
+Thank You For Listening!\\
+I Invite You To Ask Any Questions You May Have...}\\
+\end{center}
+\end{frame}
+
+%\begin{frame}[allowframebreaks]{References}
+%\bibliography{references.bib}
+%\bibliographystyle{plain}
+%\end{frame}
+
+\end{document}
